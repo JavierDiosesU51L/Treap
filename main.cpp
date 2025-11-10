@@ -83,30 +83,3 @@ NodoTreap* eliminar(NodoTreap* raiz, int clave) {
 
     return raiz;
 }
-
-int main(){
-    
-    NodoTreap* root = nuevoNodo(50);
-    
-	root->izquierda = nuevoNodo(30);
-    
-    root->derecha = nuevoNodo(70);
-    
-    root->izquierda->izquierda = nuevoNodo(20);
-    
-    root->izquierda->derecha = nuevoNodo(40);
-    
-    root->derecha->derecha = nuevoNodo(90);
-    
-    root->derecha->izquierda = nuevoNodo(70);
-    
-    root = eliminar (root,90);
-    
-    recorridoEnOrden(root);
-    
-    
-    
-    
-    
-    
-}
