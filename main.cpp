@@ -98,7 +98,7 @@ int main(){
     
     root->derecha->derecha = nuevoNodo(90);
     
-    root->derecha->izquierda = nuevoNodo(70);
+    root->derecha->izquierda = nuevoNodo(80);
     
     root = eliminar (root,90);
     
