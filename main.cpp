@@ -83,6 +83,7 @@ NodoTreap* eliminar(NodoTreap* raiz, int clave) {
 
     return raiz;
 }
+<<<<<<< HEAD
 
 int main(){
     
@@ -110,3 +111,5 @@ int main(){
     
     
 }
+=======
+>>>>>>> 257f44656c7c723d2eadf8f21540e6ebbed324d8
