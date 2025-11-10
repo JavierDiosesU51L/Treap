@@ -83,7 +83,6 @@ NodoTreap* eliminar(NodoTreap* raiz, int clave) {
 
     return raiz;
 }
-<<<<<<< HEAD
 
 int main(){
     
@@ -104,12 +103,6 @@ int main(){
     root = eliminar (root,90);
     
     recorridoEnOrden(root);
-    
-    
-    
-    
-    
+     
     
 }
-=======
->>>>>>> 257f44656c7c723d2eadf8f21540e6ebbed324d8
