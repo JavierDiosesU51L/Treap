@@ -36,7 +36,7 @@ NodoTreap* nuevoNodo(int clave) {
     NodoTreap* temp = new NodoTreap;
     temp->clave = clave;
     temp->prioridad = rand() % 100;
-    temp->izquierda = temp->derecha = nullptr;
+    temp->izquierda = temp->derecha = NULL;
     return temp;
 }
 
@@ -52,4 +52,61 @@ void recorridoEnOrden(NodoTreap* raiz) {
         cout << endl;
         recorridoEnOrden(raiz->derecha);
     }
+}
+
+// Eliminar una clave del Treap
+NodoTreap* eliminar(NodoTreap* raiz, int clave) {
+    if (raiz == NULL)
+        return raiz;
+
+    if (clave < raiz->clave)
+        raiz->izquierda = eliminar(raiz->izquierda, clave);
+    else if (clave > raiz->clave)
+        raiz->derecha = eliminar(raiz->derecha, clave);
+    else {
+        if (raiz->izquierda == NULL) {
+            NodoTreap* temp = raiz->derecha;
+            delete raiz;
+            raiz = temp;
+        } else if (raiz->derecha == NULL) {
+            NodoTreap* temp = raiz->izquierda;
+            delete raiz;
+            raiz = temp;
+        } else if (raiz->izquierda->prioridad < raiz->derecha->prioridad) {
+            raiz = rotarIzquierda(raiz);
+            raiz->izquierda = eliminar(raiz->izquierda, clave);
+        } else {
+            raiz = rotarDerecha(raiz);
+            raiz->derecha = eliminar(raiz->derecha, clave);
+        }
+    }
+
+    return raiz;
+}
+
+int main(){
+    
+    NodoTreap* root = nuevoNodo(50);
+    
+	root->izquierda = nuevoNodo(30);
+    
+    root->derecha = nuevoNodo(70);
+    
+    root->izquierda->izquierda = nuevoNodo(20);
+    
+    root->izquierda->derecha = nuevoNodo(40);
+    
+    root->derecha->derecha = nuevoNodo(90);
+    
+    root->derecha->izquierda = nuevoNodo(70);
+    
+    root = eliminar (root,90);
+    
+    recorridoEnOrden(root);
+    
+    
+    
+    
+    
+    
 }
